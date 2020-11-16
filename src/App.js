@@ -8,7 +8,7 @@ import EditForm from './Form/EditForm'
 import Fave from './Fave/Fave'
 
 function App() {
-	const url = 'http://localhost:3000/songs'
+	const url = 'https://railstunr.herokuapp.com/songs'
 
 	const emptySong = {
 		title: '',

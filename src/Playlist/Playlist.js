@@ -37,7 +37,7 @@ const Playlist = (props) => {
 		</div>
 	)
 
-	return songs.length > 0 ? loaded() : <h1>Loading...</h1>
+	return songs.length > 0 ? loaded() : <h3>Add Song Below to Start New Playlist</h3>
 }
 
 export default Playlist
