@@ -1,6 +1,6 @@
 import React from 'react'
 import './playlist.scss'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 const Playlist = (props) => {
 	const { songs } = props
@@ -14,12 +14,16 @@ const Playlist = (props) => {
 					<p className='artist'>{song.artist}</p>
 					<p className='time'>{song.time}</p>
 					<div className='icons'>
-						<i className='fas fa-heart'></i>
+						<i
+							className='fas fa-heart'
+							onClick={() => {
+								props.onFaveToggle(song)
+							}}></i>
 						<Link to='/songs/edit'>
 							<i
 								className='far fa-edit'
 								onClick={() => {
-                                    props.selectSong(song)
+									props.selectSong(song)
 								}}></i>
 						</Link>
 						<i

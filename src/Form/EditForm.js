@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import './form.scss'
 
 const EditForm = (props) => {
-    const [formData, setFormData] = useState(props)
-    console.log('edit form props', props)
+    const [formData, setFormData] = useState(props.song.selectedSong)
+	console.log('edit form props', props)
+	console.log('formdata', formData)
 
 	const handleSubmit = (event) => {
 		event.preventDefault()
@@ -23,21 +24,21 @@ const EditForm = (props) => {
 				<input
 					type='text'
 					name='title'
-					value={formData.song.selectedSong.title}
+					value={formData.title}
 					onChange={handleChange}
 				/>
 				<p>ARTIST</p>
 				<input
 					type='text'
 					name='artist'
-					value={formData.song.selectedSong.artist}
+					value={formData.artist}
 					onChange={handleChange}
 				/>
 				<p>TIME</p>
 				<input
 					type='text'
 					name='time'
-					value={formData.song.selectedSong.time}
+					value={formData.time}
 					onChange={handleChange}
 				/>
 				<br />

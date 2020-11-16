@@ -5,6 +5,7 @@ import Header from './Header/Header'
 import Form from './Form/Form'
 import Playlist from './Playlist/Playlist'
 import EditForm from './Form/EditForm'
+import Fave from './Fave/Fave'
 
 function App() {
 	const url = 'http://localhost:3000/songs'
@@ -30,7 +31,15 @@ function App() {
 
 	useEffect(() => {
 		ApiCall()
-	}, [])
+  }, [])
+  
+  const handleFaveToggle = (song) => {
+    const faveSongs = [...faves]
+    const songIndex = faveSongs.indexOf(song)
+
+    songIndex > -1 ? faveSongs.splice(songIndex, 1) : faveSongs.push(song)
+    setFaves(faveSongs)
+  }
 
 	const handleAddSong = (newSong) => {
 		fetch(url, {
@@ -76,7 +85,9 @@ function App() {
 							songs={songs}
 							deleteSong={deleteSong}
 							selectSong={selectSong}
+							onFaveToggle={handleFaveToggle}
 						/>
+						<Fave fave={faves} onFaveToggle={handleFaveToggle} />
 						<Form handleSubmit={handleAddSong} song={emptySong} />
 					</>
 				)}
